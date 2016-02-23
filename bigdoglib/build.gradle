@@ -19,8 +19,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.xuan:bigapplelib:2.0.0'
     compile 'com.xuan:bigappleuilib:2.0.0'
+    compile 'com.google.zxing:core:3.2.1'
 }
