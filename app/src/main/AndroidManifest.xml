@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -33,6 +34,8 @@
         <activity android:name=".demo.tabframe.mcall.DemoFrameActivity" />
         <activity android:name=".demo.dialog.DemoDialogActivity" />
         <activity android:name=".demo.view.layout.input.DemoTitleAndInputActivity" />
+        <activity android:name=".demo.zxing.DemoZxingActivity" />
+        <activity android:name=".demo.zxing.DemoScanActivity" />
     </application>
 
 </manifest>

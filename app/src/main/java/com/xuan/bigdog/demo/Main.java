@@ -12,6 +12,7 @@ import com.xuan.bigdog.R;
 import com.xuan.bigdog.demo.dialog.DemoDialogActivity;
 import com.xuan.bigdog.demo.tabframe.mcall.DemoFrameActivity;
 import com.xuan.bigdog.demo.view.layout.input.DemoTitleAndInputActivity;
+import com.xuan.bigdog.demo.zxing.DemoZxingActivity;
 import com.xuan.bigdog.lib.update.UpdateHelper;
 import com.xuan.bigdog.lib.update.core.UpdateConfig;
 
@@ -32,6 +33,7 @@ public class Main extends BPActivity {
 		addButton("tabframe.mcall测试", DemoFrameActivity.class);
 		addButton("dialog测试", DemoDialogActivity.class);
 		addButton("title & input测试", DemoTitleAndInputActivity.class);
+		addButton("zxing二维码工具", DemoZxingActivity.class);
 
 		addButton("检测新版本", new View.OnClickListener() {
 			@Override
