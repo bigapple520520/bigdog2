@@ -38,7 +38,6 @@ public class ZxingUtils {
      * @param content
      * @param config
      * @return
-     * @throws WriterException
      */
     public static Bitmap encodeToBitmap(String content, ZxConfig config) {
         if (TextUtils.isEmpty(content)) {
@@ -113,8 +112,6 @@ public class ZxingUtils {
      * @param content
      * @param saveFileName
      * @return
-     * @throws WriterException
-     * @throws Exception
      */
     public static Bitmap encodeToBitmap(String content, String saveFileName) {
         return encodeToBitmap(content, new ZxConfig(saveFileName));

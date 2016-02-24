@@ -25,8 +25,8 @@ public class Intents {
 
 		/**
 		 * Comma-separated list of formats to scan for. The values must match
-		 * the names of {@link com.google.zxing.BarcodeFormat}s, such as
-		 * {@link com.google.zxing.BarcodeFormat#EAN_13}. Example:
+		 * the names of com.google.zxing.BarcodeFormat, such as
+		 * com.google.zxing.BarcodeFormat. Example:
 		 * "EAN_13,EAN_8,QR_CODE"
 		 * 
 		 * This overrides {@link #MODE}.
@@ -34,7 +34,7 @@ public class Intents {
 		public static final String SCAN_FORMATS = "SCAN_FORMATS";
 
 		/**
-		 * @see com.google.zxing.DecodeHintType#CHARACTER_SET
+		 * com.google.zxing.DecodeHintType#CHARACTER_SET
 		 */
 		public static final String CHARACTER_SET = "CHARACTER_SET";
 
