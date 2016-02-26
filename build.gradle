@@ -18,6 +18,9 @@ allprojects {
     repositories {
         jcenter()
         maven {
+            url 'http://maven.jopool.net/content/groups/public'
+        }
+        maven {
             url 'https://dl.bintray.com/xuan698400/maven'
         }
     }
