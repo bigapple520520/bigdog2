@@ -12,6 +12,7 @@ import com.xuan.bigdog.R;
 import com.xuan.bigdog.demo.dialog.DemoDialogActivity;
 import com.xuan.bigdog.demo.tabframe.mcall.DemoFrameActivity;
 import com.xuan.bigdog.demo.view.layout.input.DemoTitleAndInputActivity;
+import com.xuan.bigdog.demo.widgets.about.DemoAboutActivity;
 import com.xuan.bigdog.demo.zxing.DemoZxingActivity;
 import com.xuan.bigdog.lib.update.UpdateHelper;
 import com.xuan.bigdog.lib.update.core.UpdateConfig;
@@ -44,6 +45,7 @@ public class Main extends BPActivity {
 				h.check();
 			}
 		});
+		addButton("widgets->about关于界面", DemoAboutActivity.class);
 	}
 
 	private void addButton(String text, final Class<?> clazz) {

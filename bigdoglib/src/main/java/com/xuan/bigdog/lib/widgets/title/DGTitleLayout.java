@@ -144,6 +144,21 @@ public class DGTitleLayout extends DGBaseLayout {
     }
 
     /**
+     * 默认返回
+     *
+     * @param activity
+     * @return
+     */
+    public DGTitleLayout configReturn(final Activity activity){
+        return configReturn(uiConfig.DEFAULT_LEFT_ICON, "返回", new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.finish();
+            }
+        });
+    }
+
+    /**
      * 配置右边文字按钮
      *
      * @param rightText
@@ -229,6 +244,10 @@ public class DGTitleLayout extends DGBaseLayout {
 
     public TextView getRightTv() {
         return rightTv;
+    }
+
+    public TextView getReturnTv(){
+        return returnTv;
     }
 
     public TextView getTitleTv() {

@@ -42,4 +42,6 @@
     <!-- widgets.carouse -->
     <color name="dg_widgets_carouse_activated">#49b232</color><!--轮播指示器选中和不选中颜色-->
     <color name="dg_widgets_carouse_unactivated">#9A9496</color>
+
+    <color name="dg_color_444444">#444444</color>
 </resources>
