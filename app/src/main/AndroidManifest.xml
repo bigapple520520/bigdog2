@@ -37,6 +37,7 @@
         <activity android:name=".demo.zxing.DemoZxingActivity" />
         <activity android:name=".demo.zxing.DemoScanActivity" />
         <activity android:name=".demo.widgets.about.DemoAboutActivity" />
+        <activity android:name=".demo.model.login.DemoLoginActivity" />
     </application>
 
 </manifest>

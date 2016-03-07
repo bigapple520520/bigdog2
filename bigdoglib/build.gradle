@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-version = "2.0.4"
+version = "2.0.4.20160307001"
 
 android {
     compileSdkVersion 22
@@ -25,6 +25,7 @@ dependencies {
     compile 'com.xuan:bigapplelib:2.0.3'
     compile 'com.xuan:bigappleuilib:2.0.3'
     compile 'com.google.zxing:core:3.2.1'
+    compile 'com.alibaba:fastjson:1.2.7'
 }
 def siteUrl = 'https://github.com/bigapple520520/bigdog2'
 def gitUrl = 'https://github.com/bigapple520520/bigdog2.git'

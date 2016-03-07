@@ -10,6 +10,7 @@ import com.xuan.bigapple.lib.ioc.InjectView;
 import com.xuan.bigapple.lib.ioc.app.BPActivity;
 import com.xuan.bigdog.R;
 import com.xuan.bigdog.demo.dialog.DemoDialogActivity;
+import com.xuan.bigdog.demo.model.login.DemoLoginActivity;
 import com.xuan.bigdog.demo.tabframe.mcall.DemoFrameActivity;
 import com.xuan.bigdog.demo.view.layout.input.DemoTitleAndInputActivity;
 import com.xuan.bigdog.demo.widgets.about.DemoAboutActivity;
@@ -46,6 +47,7 @@ public class Main extends BPActivity {
 			}
 		});
 		addButton("widgets->about关于界面", DemoAboutActivity.class);
+		addButton("model->login", DemoLoginActivity.class);
 	}
 
 	private void addButton(String text, final Class<?> clazz) {
