@@ -58,16 +58,20 @@ public class AsyncCheck extends AsyncTask<String, Integer, UpdateInfo> {
 
     @Override
     protected void onPostExecute(UpdateInfo updateInfo) {
-        if (updateInfo.getLastVersion() > VersionUtils.getVersionCode()) {
-            UpdateUIHelper.showUpdateUI(context, updateInfo, mUpdateConfig);
-        } else {
-            if (!Validators.isEmpty(mUpdateConfig.getNoUpateTips())) {
-                ToastUtils.displayTextShort(mUpdateConfig.getNoUpateTips());//提示已是最新版本
+      if (null == updateInfo){
+            return;
+        }else{
+            if (updateInfo.getLastVersion() > VersionUtils.getVersionCode()) {
+                UpdateUIHelper.showUpdateUI(context, updateInfo, mUpdateConfig);
+            } else {
+                if (!Validators.isEmpty(mUpdateConfig.getNoUpateTips())) {
+                    ToastUtils.displayTextShort(mUpdateConfig.getNoUpateTips());//提示已是最新版本
+                }
             }
-        }
 
-        if (null != mUpdateConfig.getOnUpdateListener()) {
-            mUpdateConfig.getOnUpdateListener().onFinishCheck(updateInfo);
+            if (null != mUpdateConfig.getOnUpdateListener()) {
+                mUpdateConfig.getOnUpdateListener().onFinishCheck(updateInfo);
+            }
         }
     }
 

@@ -54,6 +54,7 @@ public class DGScanActivity extends Activity implements Callback {
 		super.onCreate(savedInstanceState);
 		setContentView(onScanViewLayout());
 		CameraManager.init(getApplication());
+		extendOperate();
 		viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
 		dgtitleLayout = (DGTitleLayout) findViewById(R.id.dgtitleLayout);
 		dgtitleLayout.configTitle("扫一扫").configReturn(
@@ -230,5 +231,7 @@ public class DGScanActivity extends Activity implements Callback {
 	protected int onScanViewLayout(){
 		return R.layout.dg_zxing_layout_scan;
 	}
+	
+	protected void extendOperate(){}
 
 }
