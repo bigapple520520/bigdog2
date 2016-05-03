@@ -211,7 +211,7 @@ public class BDRegisterModel {
             paramMap.put("phone" , (String)params[0]);
             paramMap.put("type" , (String)params[1]);
 
-            Result<BServiceNoResultData> result = okHttpPost(url , paramMap);
+            Result<BServiceNoResultData> result = bPost(url , paramMap);
             if (result.isSuccess()){
                 BServiceNoResultData retData = JSON.parseObject(result.getMessage() , BServiceNoResultData.class);
                 result.setMessage(retData.getMessage());
@@ -242,7 +242,7 @@ public class BDRegisterModel {
             paramMap.put("password" , (String)params[1]);
             paramMap.put("roleType" , (String)params[2]);
 
-            Result<BServiceNoResultData> result = okHttpPost(url , paramMap);
+            Result<BServiceNoResultData> result = bPost(url , paramMap);
             if (result.isSuccess()){
                 BServiceNoResultData retData = JSON.parseObject(result.getMessage() , BServiceNoResultData.class);
                 result.setMessage(retData.getMessage());
@@ -274,7 +274,7 @@ public class BDRegisterModel {
             paramMap.put("smsCode" , (String)params[1]);
             paramMap.put("type" , (String)params[2]);
 
-            Result<BServiceNoResultData> result = okHttpPost(url , paramMap);
+            Result<BServiceNoResultData> result = bPost(url, paramMap);
             if (result.isSuccess()){
                 BServiceNoResultData retData = JSON.parseObject(result.getMessage() , BServiceNoResultData.class);
                 result.setMessage(retData.getMessage());
@@ -306,7 +306,7 @@ public class BDRegisterModel {
             paramMap.put("password" , (String)params[1]);
             paramMap.put("roleType" , (String)params[2]);
 
-            Result<BDRegisterData> result = okHttpPost(url , paramMap);
+            Result<BDRegisterData> result = bPost(url, paramMap);
             if (result.isSuccess()){
                 BDRegisterData retData = JSON.parseObject(result.getMessage() , BDRegisterData.class);
                 result.setMessage(retData.getMessage());

@@ -74,7 +74,7 @@ public class BDUpLoadModel {
             HashMap<String , String> paramMap = new HashMap<String , String>();
             paramMap.put("file" , (String)params[0]);
 
-            Result<BDUploadData> result = postFile(url , paramMap);
+            Result<BDUploadData> result = bUpload(url , paramMap);
             if (result.isSuccess()){
                 BDUploadData retData = JSON.parseObject(result.getMessage() , BDUploadData.class);
                 result.setMessage(retData.getMessage());

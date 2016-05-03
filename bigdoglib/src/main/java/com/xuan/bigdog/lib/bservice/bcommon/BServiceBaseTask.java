@@ -1,21 +1,23 @@
 package com.xuan.bigdog.lib.bservice.bcommon;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 
-import com.squareup.okhttp.Response;
 import com.xuan.bigapple.lib.asynctask.AbstractTask;
 import com.xuan.bigapple.lib.asynctask.callback.AsyncTaskResultNullCallback;
 import com.xuan.bigapple.lib.asynctask.helper.Result;
+import com.xuan.bigapple.lib.http.BPHttpUtils;
+import com.xuan.bigapple.lib.http.BPResponse;
 import com.xuan.bigapple.lib.utils.ContextUtils;
 import com.xuan.bigapple.lib.utils.ToastUtils;
 import com.xuan.bigdog.lib.dialog.DGProgressDialog;
 
 import java.io.File;
-import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 请求Task基类
+ *
  * Created by wuhk on 2016/2/23.
  */
 public abstract class BServiceBaseTask<T> extends AbstractTask<T> {
@@ -26,9 +28,7 @@ public abstract class BServiceBaseTask<T> extends AbstractTask<T> {
 
     // 初始化一些自定义的异步加载属性
     private void initTask() {
-
         setProgressDialog(new DGProgressDialog(context, getProgressTip()));
-
         setAsyncTaskResultNullCallback(new AsyncTaskResultNullCallback() {
             @Override
             public void resultNullCallback() {
@@ -41,64 +41,53 @@ public abstract class BServiceBaseTask<T> extends AbstractTask<T> {
 
 
     /**
-     * okHttpPost提交(无通用参数)
+     * post提交(无通用参数)
      *
      * @param url
      * @param postParam
      * @return
      */
-    protected Result<T> okHttpPost(String url, Map<String, String> postParam) {
+    protected Result<T> bPost(String url, Map<String, String> postParam) {
+        BPResponse response = BPHttpUtils.post(url, postParam);
         Result<T> result = new Result<T>();
-        BOkHttpClientManager.Param [] params = new BOkHttpClientManager.Param[postParam.size()];
-        int i = 0 ;
-        for (Map.Entry<String , String> entry : postParam.entrySet()){
-            params[i] = new BOkHttpClientManager.Param(entry.getKey() , entry.getValue());
-            i++;
+        if (-1 == response.getStatusCode()) {
+            result.setSuccess(false);
+            result.setMessage(response.getReasonPhrase());
+        } else if (200 == response.getStatusCode()) {
+            // 正常200
+            result.setSuccess(true);
+            result.setMessage(response.getResultStr());
+        } else {
+            // 非200的状态码
+            result.setSuccess(false);
+            result.setMessage("返回状态码错误" + response.toString());
         }
-        Response response = null;
-        try {
-            response = BOkHttpClientManager.getInstance().getPostDelegate().post(url,params);
-            if (response.isSuccessful()){
-                result.setSuccess(true);
-                result.setMessage(response.body().string());
-            }else{
-                result.setSuccess(false);
-                result.setMessage(response.message());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         return result;
     }
 
-
-    /**
-     * okHttpPost提交文件(无通用参数)
+    /**上传文件
      *
      * @param url
      * @param postParam
      * @return
      */
-    protected Result<T> postFile(String url, Map<String, String> postParam) {
+    protected Result<T> bUpload(String url, Map<String, String> postParam) {
+        File file = new File(postParam.get("file"));
+        HashMap<String , File> fileHashMap = new HashMap<String, File>();
+        fileHashMap.put("file" , file);
+        BPResponse response = BPHttpUtils.upload(url, fileHashMap , null);
         Result<T> result = new Result<T>();
-        File files = new File(postParam.get("file"));
-        String fileKeys = "file";
-        try {
-            Response response = BOkHttpClientManager.getInstance().getUploadDelegate().post(url, fileKeys, files);
-            if (response.isSuccessful()){
-                result.setSuccess(true);
-                try {
-                    result.setMessage(response.body().string());
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
-            }else {
-                result.setSuccess(false);
-                result.setMessage(response.message());
-            }
-        }catch (IOException e){
-            e.printStackTrace();
+        if (-1 == response.getStatusCode()) {
+            result.setSuccess(false);
+            result.setMessage(response.getReasonPhrase());
+        } else if (200 == response.getStatusCode()) {
+            // 正常200
+            result.setSuccess(true);
+            result.setMessage(response.getResultStr());
+        } else {
+            // 非200的状态码
+            result.setSuccess(false);
+            result.setMessage("返回状态码错误" + response.toString());
         }
         return result;
     }

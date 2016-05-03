@@ -8,12 +8,11 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * 界面管理器,用DGActivityManager代替
+ * 界面管理器
  *
  * Created by xuan on 15/9/25.
  */
-@Deprecated
-public class BDActivityManager {
+public class DGActivityManager {
     private static List<Activity> activityList = new ArrayList<Activity>();
 
     /**

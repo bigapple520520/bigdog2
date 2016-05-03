@@ -1,6 +1,8 @@
 package com.xuan.bigdog.lib.bservice.bcommon;
 
 /**
+ * 返回基类数据
+ *
  * Created by wuhk on 2016/2/24.
  */
 public class BServiceBaseData<T> {

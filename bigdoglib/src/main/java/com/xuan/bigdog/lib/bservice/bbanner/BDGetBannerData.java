@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * 轮播图返回
+ *
  * Created by wuhk on 2016/3/14.
  */
 public class BDGetBannerData extends BServiceBaseData<BDGetBannerData> {
@@ -57,4 +58,5 @@ public class BDGetBannerData extends BServiceBaseData<BDGetBannerData> {
             this.url = url;
         }
     }
+
 }

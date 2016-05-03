@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 /**
  * 轮播图
+ *
  * Created by wuhk on 2016/3/14.
  */
 public class BDBannerModel {
@@ -70,7 +71,7 @@ public class BDBannerModel {
             HashMap<String ,String> paramMap = new HashMap<String , String >();
             paramMap.put("position" , (String)params[0]);
 
-            Result<BDGetBannerData> result = okHttpPost(url , paramMap);
+            Result<BDGetBannerData> result = bPost(url , paramMap);
             if(result.isSuccess()){
                 BDGetBannerData retData = JSON.parseObject(result.getMessage() , BDGetBannerData.class);
                 result.setMessage(retData.getMessage());

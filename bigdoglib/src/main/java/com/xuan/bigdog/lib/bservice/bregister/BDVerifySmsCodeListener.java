@@ -5,15 +5,6 @@ package com.xuan.bigdog.lib.bservice.bregister;
  * Created by wuhk on 2016/3/14.
  */
 public interface BDVerifySmsCodeListener {
-    /**
-     * 成功
-     */
     void success();
-
-    /**
-     * 失败
-     *
-     * @param message
-     */
     void fail(String message);
 }

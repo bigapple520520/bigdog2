@@ -6,6 +6,5 @@ package com.xuan.bigdog.lib.bservice.bregister;
  */
 public interface BDRegisterListener {
     void success(String userId);
-
     void fail(String message);
 }

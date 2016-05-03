@@ -95,7 +95,7 @@ public class BDLoginModel {
                 paramMap.put("ext" , (String)params[4]);
             }
 
-            Result<BDLoginUser> result = okHttpPost(url , paramMap);
+            Result<BDLoginUser> result = bPost(url , paramMap);
             if (result.isSuccess()){
                 BDLoginUser retData = JSON.parseObject(result.getMessage(), BDLoginUser.class);
                 result.setMessage(retData.getMessage());
@@ -108,5 +108,6 @@ public class BDLoginModel {
             return result;
         }
     }
+
 }
 

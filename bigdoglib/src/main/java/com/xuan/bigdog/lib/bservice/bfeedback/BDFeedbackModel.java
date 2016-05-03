@@ -29,7 +29,8 @@ public class BDFeedbackModel {
         return instantce;
     }
 
-    /**意见反馈
+    /**
+     * 意见反馈
      *
      * @param context
      * @param website
@@ -56,8 +57,8 @@ public class BDFeedbackModel {
         feedbackTask.execute(content , userId);
     }
 
-    /**意见反馈Task
-     *
+    /**
+     * 意见反馈Task
      */
     private class FeedbackTask extends BServiceBaseTask<BServiceNoResultData> {
         private String url;
@@ -72,7 +73,7 @@ public class BDFeedbackModel {
             HashMap<String , String> paramMap = new HashMap<String , String>();
             paramMap.put("content" , (String)params[0]);
             paramMap.put("userId" , (String)params[1]);
-            Result<BServiceNoResultData> result = okHttpPost(url , paramMap);
+            Result<BServiceNoResultData> result = bPost(url, paramMap);
             if (result.isSuccess()){
                 BServiceNoResultData retData = JSON.parseObject(result.getMessage() , BServiceNoResultData.class);
                 result.setMessage(retData.getMessage());
@@ -85,4 +86,5 @@ public class BDFeedbackModel {
             return result;
         }
     }
+
 }
