@@ -40,5 +40,28 @@ public class BDVersionCheckModel {
         UpdateHelper updateHelper = new UpdateHelper(context, config);
         updateHelper.check();
     }
+	
+	/**
+     * 检查版本更新,自动设置参数
+     *
+     * @param context
+     * @param checkUrl
+     * @param apkSaveFilePath
+     */
+    public void doCheckDefault(Context context, String checkUrl, String apkSaveFilePath){
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            String completeUrl = checkUrl + "?version="+packageInfo.versionCode+"&os=ANDROID&appId="+packageInfo.packageName;
+            UpdateConfig config = new UpdateConfig();
+            config.setCheckUrl(completeUrl);
+            config.setSaveFileName(apkSaveFilePath);
+            config.setPasreUpdateInfoHandler(new BDVersionCheckPasreHandler());
+
+            UpdateHelper updateHelper = new UpdateHelper(context, config);
+            updateHelper.check();
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
